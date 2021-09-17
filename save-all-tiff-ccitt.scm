@@ -4,7 +4,7 @@
 ; Copy this file to "/usr/share/gimp/2.0/scripts"
 ; or "/usr/local/share/gimp/scripts" etc.
 ; Open a PDF file as separate images in GIMP, and select the pull-down menu
-; "Script-fu" - "Save all files as TIFF CCITT".
+; "Script-Fu" - "Save all files as TIFF CCITT".
 ;
 ; This script is written based on
 ; "save_all_images.scm" by Saul Goode and  
