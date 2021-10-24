@@ -55,7 +55,7 @@ inFileName inFileNumber)
 	  (gimp-convert-indexed image 0 3 0 FALSE FALSE "")
   
 (file-tiff-save 
-    1; Runmode, RUN-NONINTERACTIVE (1) -> if you select 0, you can selecet compression types, but you cannot name the file.
+    1; Runmode, RUN-NONINTERACTIVE (1) > if you set 0, the dialog box to select compression type appears.
     image; Imput image
 	(car (gimp-image-get-active-layer image)); Drawable to save
 	newFileName; the name of the file to save the image
