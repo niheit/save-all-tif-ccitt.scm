@@ -55,7 +55,7 @@ inFileName inFileNumber)
 	  (gimp-convert-indexed image 0 3 0 FALSE FALSE "")
   
 (file-tiff-save 
-    1; Runmode, RUN-NONINTERACTIVE (1) > if you set 0, the dialog box to select compression type appears.
+    1 ;Runmode, RUN-NONINTERACTIVE (1) > if you set 0, the dialog box for selecting compression type appears.
     image; Imput image
 	(car (gimp-image-get-active-layer image)); Drawable to save
 	newFileName; the name of the file to save the image
@@ -69,17 +69,19 @@ inFileName inFileNumber)
   )
 ) 
 
-(script-fu-register "save-all-tiff-ccitt" 
- "<Image>/Script-Fu/Save all files as TIFF CCITT" 
- "Save all opened images as TIFF CCITT" 
- "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" 
- "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" 
- "191119 (modified 210824)" 
- ""
+(script-fu-register
+ "save-all-tiff-ccitt" ;function name 
+ "Save all files as TIFF CCITT" ;menu label 
+ "Save all opened images as TIFF CCITT (Group 4) format" ;description
+ "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" ;author
+ "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" ;copyright
+ "191119 (modified 210824)" ;date created
+ "" ;image type on the script works on
  SF-DIRNAME    "Save Directory" ""
- SF-OPTION     "Save File Type" (list "tif")
-; SF-OPTION     "Save File Type" (list "tif" "bmp" "png" "jpg")
- SF-STRING     "Save File Base Name" "" ; original is "IMAGE"
- SF-ADJUSTMENT "Save File Start Number" 
+ SF-OPTION     "File Extensions" (list "tif" "tiff")
+; SF-OPTION     "File Type" (list "tif" "bmp" "png" "jpg")
+ SF-STRING     "Base Name" ""
+ SF-ADJUSTMENT "Start Number" 
       (list 0 0 9000 1 100 0 SF-SPINNER)
  )
+(script-fu-menu-register "save-all-tiff-ccitt" "<Image>/Script-Fu")
