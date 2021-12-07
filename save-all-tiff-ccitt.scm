@@ -38,6 +38,7 @@ inFileName inFileNumber)
     (set! saveString
       (cond 
         (( equal? inSaveType 0 ) ".tif" )
+        (( equal? inSaveType 1 ) ".tiff" )  ;Optional
 ;        (( equal? inSaveType 1 ) ".bmp" )
 ;        (( equal? inSaveType 2 ) ".png" )
 ;        (( equal? inSaveType 3 ) ".jpg" )
@@ -55,7 +56,7 @@ inFileName inFileNumber)
 	  (gimp-convert-indexed image 0 3 0 FALSE FALSE "")
   
 (file-tiff-save 
-    1 ;Runmode, RUN-NONINTERACTIVE (1) > if you set 0, the dialog box for selecting compression type appears.
+    1 ;Runmode, RUN-NONINTERACTIVE (1) > if you set 0, dialog boxes appear for selecting compression types.
     image; Imput image
 	(car (gimp-image-get-active-layer image)); Drawable to save
 	newFileName; the name of the file to save the image
@@ -78,8 +79,8 @@ inFileName inFileNumber)
  "191119 (modified 210824)" ;date created
  "" ;image type on the script works on
  SF-DIRNAME    "Save Directory" ""
- SF-OPTION     "File Extensions" (list "tif" "tiff")
-; SF-OPTION     "File Type" (list "tif" "bmp" "png" "jpg")
+ SF-OPTION     "File Extension" (list "tif" "tiff")
+; SF-OPTION     "File Extension" (list "tif" "bmp" "png" "jpg")
  SF-STRING     "Base Name" ""
  SF-ADJUSTMENT "Start Number" 
       (list 0 0 9000 1 100 0 SF-SPINNER)
