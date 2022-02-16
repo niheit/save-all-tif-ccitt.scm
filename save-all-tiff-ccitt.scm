@@ -76,7 +76,7 @@ inFileName inFileNumber)
  "Save all opened images as TIFF CCITT (Group 4) format" ;description
  "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" ;author
  "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" ;copyright
- "191119 (modified 210824 211207)" ;date created
+ "191119 (modified 210824)" ;date created
  "" ;image type on the script works on
  SF-DIRNAME    "Save Directory" ""
  SF-OPTION     "File Extension" (list "tif" "tiff")
