@@ -1,5 +1,5 @@
 ; This is a script (Script-Fu) for GIMP (GNU Image Manipulation Program)
-; to convert all opened files into black and white mode,
+; to convert all opened images into black and white mode,
 ; and save them as TIFF CCITT (Group 4) format.
 ; Copy this file to "/usr/share/gimp/2.0/scripts"
 ; or "/usr/local/share/gimp/scripts" etc.
