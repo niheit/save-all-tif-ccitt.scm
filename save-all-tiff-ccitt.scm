@@ -1,10 +1,12 @@
 ; This is a script (Script-Fu) for GIMP (GNU Image Manipulation Program)
 ; to convert all opened images into black and white mode,
 ; and save them as TIFF CCITT (Group 4) format.
+; This small script will help you clean your room.
+;
 ; Copy this file to "/usr/share/gimp/2.0/scripts"
 ; or "/usr/local/share/gimp/scripts" etc.
 ; Open a PDF file as separate images in GIMP, and select the pull-down menu
-; "Filters" - "Save all files as TIFF CCITT".
+; "Filters" - "Save all files as TIFF CCITT".  
 ;
 ; This script is written based on
 ; "save_all_images.scm" by Saul Goode and  
