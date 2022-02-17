@@ -4,7 +4,7 @@
 ; Copy this file to "/usr/share/gimp/2.0/scripts"
 ; or "/usr/local/share/gimp/scripts" etc.
 ; Open a PDF file as separate images in GIMP, and select the pull-down menu
-; "Script-Fu" - "Save all files as TIFF CCITT".
+; "Filters" - "Save all files as TIFF CCITT".
 ;
 ; This script is written based on
 ; "save_all_images.scm" by Saul Goode and  
@@ -78,11 +78,11 @@ inFileName inFileNumber)
  "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" ;copyright
  "191119 (modified 210824)" ;date created
  "" ;image type on the script works on
- SF-DIRNAME    "Save Directory" ""
+ SF-DIRNAME    "Save Directory" "/home"
  SF-OPTION     "File Extension" (list "tif" "tiff")
 ; SF-OPTION     "File Extension" (list "tif" "bmp" "png" "jpg")
  SF-STRING     "Base Name" ""
  SF-ADJUSTMENT "Start Number" 
       (list 0 0 9000 1 100 0 SF-SPINNER)
  )
-(script-fu-menu-register "save-all-tiff-ccitt" "<Image>/Script-Fu")
+(script-fu-menu-register "save-all-tiff-ccitt" "<Image>/Filters")
