@@ -80,7 +80,7 @@ inFileName inFileNumber)
  "" ;image type on the script works on
  SF-DIRNAME    "Save Directory" "/home"
  SF-OPTION     "File Extension" (list "tif" "tiff")
-; SF-OPTION     "File Extension" (list "tif" "bmp" "png" "jpg")
+;SF-OPTION     "File Extension" (list "tif" "bmp" "png" "jpg")
  SF-STRING     "Base Name" ""
  SF-ADJUSTMENT "Start Number" 
       (list 0 0 9000 1 100 0 SF-SPINNER)
