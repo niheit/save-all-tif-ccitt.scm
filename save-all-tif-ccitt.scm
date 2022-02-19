@@ -11,7 +11,6 @@
 ; This script is written based on
 ; "save_all_images.scm" by Saul Goode and  
 ; "script-fu-save-all-images.scm" by Lauchlin Wilkinson.
-;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This program is free software
 ; you can redistribute it and/or modify
@@ -26,7 +25,7 @@
 ; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 ; GNU General Public License for more details.
 
-(define (save-all-tiff-ccitt inDir inSaveType 
+(define (save-all-tif-ccitt inDir inSaveType 
 inFileName inFileNumber) 
   (let* (
           (i (car (gimp-image-list)))
@@ -73,11 +72,11 @@ inFileName inFileNumber)
 ) 
 
 (script-fu-register
- "save-all-tiff-ccitt" ;function name 
+ "save-all-tif-ccitt" ;function name 
  "Save all files as TIFF CCITT" ;menu label 
  "Save all opened images as TIFF CCITT (Group 4) format" ;description
- "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" ;author
- "Takaaki Nihei (& Lauchlin Wilkinson, & Saul Goode)" ;copyright
+ "Nihei, T. (& Lauchlin Wilkinson, & Saul Goode)" ;author
+ "Nihei, T. (& Lauchlin Wilkinson, & Saul Goode)" ;copyright
  "191119 (modified 210824)" ;date created
  "" ;image type on the script works on
  SF-DIRNAME    "Save Directory" "/home"
@@ -87,4 +86,4 @@ inFileName inFileNumber)
  SF-ADJUSTMENT "Start Number" 
       (list 0 0 9000 1 100 0 SF-SPINNER)
  )
-(script-fu-menu-register "save-all-tiff-ccitt" "<Image>/Filters")
+(script-fu-menu-register "save-all-tif-ccitt" "<Image>/Filters")
