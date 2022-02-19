@@ -11,6 +11,7 @@
 ; This script is written based on
 ; "save_all_images.scm" by Saul Goode and  
 ; "script-fu-save-all-images.scm" by Lauchlin Wilkinson.
+;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This program is free software
 ; you can redistribute it and/or modify
@@ -63,8 +64,7 @@ inFileName inFileNumber)
 	newFileName; the name of the file to save the image
 	newFileName; the name of the file to save the image, raw-filename
 	6
-  )
-	  
+  ) 
       (gimp-image-clean-all image) 
       (set! i (- i 1))
     )
