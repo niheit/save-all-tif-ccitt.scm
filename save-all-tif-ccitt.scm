@@ -29,23 +29,23 @@
 (define (save-all-tif-ccitt inDir inSaveType 
 inFileName inFileNumber) 
   (let* (
-          (i (car (gimp-image-list)))
-          (ii (car (gimp-image-list))) 
-          (image)
-          (newFileName "")
-          (saveString "")
-          (pathchar (if (equal? 
-                 (substring gimp-dir 0 1) "/") "/" "\\"))
+         (i (car (gimp-image-list)))
+         (ii (car (gimp-image-list))) 
+         (image)
+         (newFileName "")
+         (saveString "")
+         (pathchar (if (equal? 
+                (substring gimp-dir 0 1) "/") "/" "\\"))
         )
     (set! saveString
       (cond 
         (( equal? inSaveType 0 ) ".tif" )
-        (( equal? inSaveType 1 ) ".tiff" )  ;Optional
-;        (( equal? inSaveType 1 ) ".bmp" )
-;        (( equal? inSaveType 2 ) ".png" )
-;        (( equal? inSaveType 3 ) ".jpg" )
+        (( equal? inSaveType 1 ) ".tiff" ) ;Optional
+      ; (( equal? inSaveType 1 ) ".bmp" )
+      ; (( equal? inSaveType 2 ) ".png" )
+      ; (( equal? inSaveType 3 ) ".jpg" )
       )
-    ) 
+    )
     (while (> i 0) 
       (set! image (vector-ref (cadr (gimp-image-list)) (- i 1)))
       (set! newFileName (string-append inDir
@@ -57,19 +57,19 @@ inFileName inFileNumber)
 	  (gimp-image-flatten image)
 	  (gimp-convert-indexed image 0 3 0 FALSE FALSE "")
   
-(file-tiff-save 
-    1 ;Runmode, RUN-NONINTERACTIVE (1) > if you set 0, dialog boxes appear for selecting compression types.
-    image; Imput image
-	(car (gimp-image-get-active-layer image)); Drawable to save
-	newFileName; the name of the file to save the image
-	newFileName; the name of the file to save the image, raw-filename
-	6
-  ) 
+      (file-tiff-save 
+        1 ;RUN-NONINTERACTIVE (1). If you set 0, dialog boxes appear to select compression types.
+        image; Imput image
+          (car (gimp-image-get-active-layer image)) ;Drawable to save
+          newFileName ;The name of the file to save the image in
+          newFileName ;The name of the file to save the image in, raw-filename
+          6 ;CCITT G4 Fax
+      ) 
       (gimp-image-clean-all image) 
       (set! i (- i 1))
     )
   )
-) 
+)
 
 (script-fu-register
  "save-all-tif-ccitt" ;function name 
