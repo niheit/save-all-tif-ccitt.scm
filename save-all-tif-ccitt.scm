@@ -30,7 +30,7 @@
 inFileName inFileNumber)
   (let* (
          (i (car (gimp-image-list)))
-         (ii (car (gimp-image-list))) 
+;        (ii (car (gimp-image-list))) 
          (image)
          (newFileName "")
          (saveString "")
@@ -41,9 +41,9 @@ inFileName inFileNumber)
       (cond 
         (( equal? inSaveType 0 ) ".tif" )
         (( equal? inSaveType 1 ) ".tiff" ) ;Optional
-       ;(( equal? inSaveType 1 ) ".bmp" )
-       ;(( equal? inSaveType 2 ) ".png" )
-       ;(( equal? inSaveType 3 ) ".jpg" )
+ ;      (( equal? inSaveType 1 ) ".bmp" )
+ ;      (( equal? inSaveType 2 ) ".png" )
+ ;      (( equal? inSaveType 3 ) ".jpg" )
       )
     )
     (while (> i 0)
@@ -54,16 +54,17 @@ inFileName inFileNumber)
               (number->string (+ inFileNumber i))))
               (number->string (+ inFileNumber i)) saveString))
 
-      (gimp-image-flatten image)
+      (gimp-image-flatten image) ;Start my modification
       (gimp-convert-indexed image 0 3 0 FALSE FALSE "")
       (file-tiff-save 
-        1 ;RUN-NONINTERACTIVE (1). If you set 0, dialog boxes appear to select compression types.
+        1 ;RUN-NONINTERACTIVE. If you set 0, dialog boxes appear to select compression types.
         image ;Imput image
         (car (gimp-image-get-active-layer image)) ;Drawable to save
-        newFileName ;The name of the file to save the image in
-        newFileName ;The name of the file to save the image in, raw-filename
+        newFileName ;File name
+        newFileName ;Raw filename
         6 ;CCITT G4 Fax
-      )
+      ) ;End my modification
+
       (gimp-image-clean-all image)
       (set! i (- i 1))
     )
