@@ -64,7 +64,6 @@ inFileName inFileNumber)
         newFileName ;Raw filename
         6 ;CCITT G4 Fax
       ) ;End my modification
-
       (gimp-image-clean-all image)
       (set! i (- i 1))
     )
