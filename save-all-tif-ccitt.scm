@@ -40,30 +40,31 @@ inFileName inFileNumber)
     (set! saveString
       (cond 
         (( equal? inSaveType 0 ) ".tif" )
-        (( equal? inSaveType 1 ) ".tiff" ) ;Optional
- ;      (( equal? inSaveType 1 ) ".bmp" )
- ;      (( equal? inSaveType 2 ) ".png" )
- ;      (( equal? inSaveType 3 ) ".jpg" )
+        (( equal? inSaveType 1 ) ".tiff" ) ; Optional
+;       (( equal? inSaveType 1 ) ".bmp" )
+;       (( equal? inSaveType 2 ) ".png" )
+;       (( equal? inSaveType 3 ) ".jpg" )
       )
     )
     (while (> i 0)
       (set! image (vector-ref (cadr (gimp-image-list)) (- i 1)))
       (set! newFileName (string-append inDir
               pathchar inFileName
-              (substring "000" (string-length
+              (substring "000" (string-length   ; For 1-999 files
+;             (substring "0000" (string-length  ; For 1000-9999 files
               (number->string (+ inFileNumber i))))
               (number->string (+ inFileNumber i)) saveString))
 
-      (gimp-image-flatten image) ;Start my modification
+      (gimp-image-flatten image)  ; Start my modification
       (gimp-convert-indexed image 0 3 0 FALSE FALSE "")
       (file-tiff-save 
-        1 ;RUN-NONINTERACTIVE. If you set 0, dialog boxes appear to select compression types.
-        image ;Imput image
-        (car (gimp-image-get-active-layer image)) ;Drawable to save
-        newFileName ;File name
-        newFileName ;Raw filename
-        6 ;CCITT G4 Fax
-      ) ;End my modification
+        1 ; RUN-NONINTERACTIVE. If you set 0, dialog boxes appear to select compression types.
+        image ; Imput image
+        (car (gimp-image-get-active-layer image)) ; Drawable to save
+        newFileName ; File name
+        newFileName ; Raw filename
+        6 ; CCITT G4 Fax
+      ) ; End my modification
       (gimp-image-clean-all image)
       (set! i (- i 1))
     )
@@ -71,13 +72,13 @@ inFileName inFileNumber)
 )
 
 (script-fu-register
- "save-all-tif-ccitt" ;function name 
- "Save all files as TIFF CCITT" ;menu label 
- "Save all opened images as TIFF CCITT (Group 4) format" ;description
- "Nihei, T. (& Lauchlin Wilkinson, & Saul Goode)" ;author
- "Nihei, T. (& Lauchlin Wilkinson, & Saul Goode)" ;copyright
- "191119 (modified 210824)" ;date created
- "" ;image type on the script works on
+ "save-all-tif-ccitt" ; Function name 
+ "Save all files as TIFF CCITT" ; Menu label 
+ "Save all opened images as TIFF CCITT (Group 4) format" ; Description
+ "Nihei, T. (& Lauchlin Wilkinson, & Saul Goode)" ; Author
+ "Nihei, T. (& Lauchlin Wilkinson, & Saul Goode)" ; Copyright
+ "191119 (modified 210824 230113)" ; Date created
+ "" ; Image type on the script works on
  SF-DIRNAME    "Save Directory" "/home"
  SF-OPTION     "File Extension" (list "tif" "tiff")
 ;SF-OPTION     "File Extension" (list "tif" "bmp" "png" "jpg")
