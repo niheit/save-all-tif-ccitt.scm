@@ -6,7 +6,7 @@
 ; or "/usr/local/share/gimp/scripts" etc.
 ; Open a PDF file as separate images in GIMP, and select the pull-down menu
 ; "Filters" - "Save all files as TIFF CCITT".  
-; This small script will help you clean your room.
+; This small script may help you clean your room.
 ;
 ; This script is written based on
 ; "save_all_images.scm" by Saul Goode and  
